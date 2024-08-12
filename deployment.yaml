@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-crud-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fastapi-crud-app
+  template:
+    metadata:
+      labels:
+        app: fastapi-crud-app
+    spec:
+      containers:
+        - name: fastapi-crud-app
+          image: 369281501673.dkr.ecr.ap-south-1.amazonaws.com/fastapi-crud-app:latest
+          ports:
+            - containerPort: 8000
